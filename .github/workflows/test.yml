@@ -1,0 +1,30 @@
+name: CI - Test clean Utility
+
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: build clean
+      run: make clean
+
+    - name: upload clean
+      uses: actions/upload-artifact@v4
+      with:
+        name: Clean
+        path: ./clean
+
+    - name: build cleaned_wbcd
+      run: ./clean <wbcd.txt >cleaned_wbcd.txt;
+
+    - name: Upload Cleaned text
+      if: ${{ always() }} 
+
+      uses: actions/upload-artifact@v4
+      with:
+        name: Cleaned Text
+        path: ./cleaned_wbcd.txt
