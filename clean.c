@@ -38,6 +38,9 @@ int main(int argc, char *argv[]) {
 		if (strcmp(argv[1], "-d") == 0) {
 			float **clean_delete_data = clean_delete(&rows, &cols, data);
 			output_data(rows, cols, clean_delete_data);
+			for (long i=0; i<rows; i++) {
+				free(clean_delete_data[i]);
+			}
 			free(clean_delete_data);
 		}
 		else {
@@ -46,10 +49,11 @@ int main(int argc, char *argv[]) {
 	}
 	
 	else {
-		float **clean_delete_data = clean_delete(&rows, &cols, data);
-		output_data(rows, cols, clean_delete_data);
-		free(clean_delete_data);
+		float **clean_impute_data = clean_impute(&rows, &cols, data);
+		output_data(rows, cols, clean_impute_data);
+		for (long i=0; i<rows; i++) {
+				free(clean_impute_data[i]);
+		}
+		free(clean_impute_data);
 	}
-	
-	free(data);
 }
