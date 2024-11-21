@@ -1,9 +1,33 @@
+/* Resham Vani, vanir1, November 21, 2024
+ *
+ * This is the main program to clean a 2d grid of floating-point numbers.
+ * It has two ways it can run:
+ * 1. Without arguments: Deletes rows containing NAN values.
+ * 2. With the "-d" argument: Replaces NAN values with column averages.
+ * The program reads the 2d grid from standard input and outputs the cleaned grid.
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "clean_data.h"
 #include "format_IO.h"
 
+/* main
+ *
+ * Parameters:
+ * - argc: The number of command-line arguments passed to the program.
+ * - argv: An array of strings representing the command-line arguments.
+ *
+ * The main function reads a 2d grid of floating-point numbers from standard input,
+ * cleans the data based on the command-line argument, and outputs the cleaned grid:
+ * - No argument: Deletes rows with NAN values.
+ * - "-d": Replaces NAN values with the average of the column.
+ *
+ * Return:
+ * - EXIT_SUCCESS (0) on successful execution.
+ * - EXIT_FAILURE (1) if an invalid argument is provided.
+ */
 int main(int argc, char *argv[]) {
 	long rows;
 	long cols;
