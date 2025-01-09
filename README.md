@@ -6,7 +6,7 @@ This program, **clean**, is a command-line utility designed to process two-dimen
 
 ## Features
 
-- **Imputation Strategy (Default)**: Replaces `nan` values with the average of the legal values in the same column. If all values in a column are `nan`, they are replaced with `0.0`.
+- **Imputation Strategy (Default)**: Replaces `nan` values with the average of the values in the same column. If all values in a column are `nan`, they are replaced with `0.0`.
 - **Deletion Strategy**: Removes rows containing `nan` values.
 - Reads input and outputs data in a compact format.
 - Handles both small and large datasets efficiently.
