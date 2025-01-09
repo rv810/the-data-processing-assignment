@@ -1,4 +1,4 @@
-### Overview
+## Overview
 
 This program, **clean**, is a command-line utility designed to process two-dimensional grids of floating-point numbers for machine learning purposes by replacing or removing bad values (`nan`). It uses **standard input** for data ingestion and **standard output** for cleaned data output. The program is modular, efficient, and handles grids of any size.
 
